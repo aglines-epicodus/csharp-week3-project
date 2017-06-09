@@ -135,6 +135,106 @@ namespace HairSalon
     }
 
 
+
+
+
+
+
+
+
+    public static Client Find(int id)
+    {
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+
+      SqlCommand cmd = new SqlCommand("SELECT * FROM clients WHERE id = @ClientId;", conn);
+
+      SqlParameter clientIdParameter = new SqlParameter();
+      clientIdParameter.ParameterName = "@ClientId";
+      clientIdParameter.Value = id.ToString();
+      cmd.Parameters.Add(clientIdParameter);
+      SqlDataReader rdr = cmd.ExecuteReader();
+
+      int foundClientId = 0;
+      string foundClientName = null;
+      int foundStylistId = 0;
+      string foundClientContact = null;
+      while(rdr.Read())
+      {
+        foundClientId = rdr.GetInt32(0);
+        foundClientName = rdr.GetString(1);
+        foundStylistId = rdr.GetInt32(2);
+        foundClientContact = rdr.GetString(3);
+
+      }
+      Client foundClient = new Client(foundClientName, foundStylistId,  foundClientContact, foundClientId);
+
+      if (rdr != null)
+      {
+        rdr.Close();
+      }
+      if (conn != null)
+      {
+        conn.Close();
+      }
+      return foundClient;
+    }
+
+
+    public static List<Client> ByStylist()
+    {
+      List<Client> AllClients = new List<Client>{};
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+      SqlCommand cmd = new SqlCommand("SELECT * FROM clients ORDER BY stylist_id", conn);
+      SqlDataReader rdr = cmd.ExecuteReader();
+      while (rdr.Read())
+      {
+        int clientId = rdr.GetInt32(0);
+        string clientName = rdr.GetString(1);
+        int stylistId = rdr.GetInt32(2);
+        string clientContact = rdr.GetString(3);
+
+        Client newClient = new Client(clientName, stylistId, clientContact, clientId);
+        AllClients.Add(newClient);
+      }
+      if (rdr != null)
+      {
+        rdr.Close();
+      }
+      if (conn != null)
+      {
+        conn.Close();
+      }
+      return AllClients;
+    }
+
+    public void Delete()
+    {
+      SqlConnection conn = DB.Connection();
+      conn.Open();
+      SqlCommand cmd = new SqlCommand("DELETE FROM clients WHERE id = @ClientId;", conn);
+      SqlParameter clientIdParameter = new SqlParameter();
+      clientIdParameter.ParameterName = "@ClientId";
+      clientIdParameter.Value = this.GetId();
+      cmd.Parameters.Add(clientIdParameter);
+      cmd.ExecuteNonQuery();
+      if (conn != null)
+      {
+        conn.Close();
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
     public static void DeleteAll()
     {
       SqlConnection conn = DB.Connection();
