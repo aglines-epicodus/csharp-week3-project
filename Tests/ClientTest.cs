@@ -19,13 +19,21 @@ namespace HairSalon
       Client.DeleteAll();
     }
 
-
     [Fact]
-    public void Test_ClientEmptyAtFirst()
+    public void Test_DatabaseEmptyAtFirst()
     {
       int result = Client.GetAll().Count;
+
       Assert.Equal(0, result);
-    } 
+    }
+
+    [Fact]
+    public void Test_Equal_ReturnsTrueIfNamesAreTheSame()
+    {
+      Client firstClient = new Client("Person1", 1, "email");
+      Client secondClient = new Client("Person1", 1, "email");
+      Assert.Equal(firstClient, secondClient);
+    }
 
   }
 
