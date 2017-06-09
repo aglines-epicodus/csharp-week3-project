@@ -10,12 +10,17 @@ namespace HairSalon
     {
       Get["/"] = _ => {
         return View["index.cshtml"];
-      }; //homepage
+      };
 
       Get["/stylists"] = _ => {
         List<Stylist> allStylists = Stylist.GetAll();
         return View["stylists.cshtml", allStylists];
-      }; //list of all stylists
+      };
+
+      Get["/clients"] = _ => {
+        List<Client> allClients = Client.GetAll();
+        return View["clients.cshtml", allClients];
+      };
 
     }
   }
