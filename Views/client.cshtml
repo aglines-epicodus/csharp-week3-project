@@ -1,0 +1,14 @@
+@{
+  Layout="Shared/_Layout";
+}
+
+<div class="container">
+  <h1>@Model.GetName()</h1>
+
+  <a href="/client/edit/@Model.GetId()">Edit this client</a>
+  <a href="/client/delete/@Model.GetId()">Delete this client</a>
+  <a href="/clients/new">Add another client</a>
+  <a href="/clients">View all clients</a>
+  <a href="/">Return Home</a>
+
+</div>

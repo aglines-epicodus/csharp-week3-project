@@ -1,0 +1,25 @@
+@{
+  Layout="Shared/_Layout";
+}
+
+<div class="container">
+  <h1>Edit Stylist</h1>
+  <hr />
+  <h2>Edit stylist: @Model.GetName()</h2>
+  <form action="/stylist/edit/@Model.GetId()" method="post">
+    <input type="hidden" name="_method" value="PATCH">
+
+    <input name="stylist-id" type="hidden" value="@Model.GetId()">
+    <label for="stylist-name">Stylist name</label>
+    <input id="stylist-name" name="stylist-name" type="text">
+
+    <label for="stylist-name">Stylist contact</label>
+    <input id="stylist-contact" name="stylist-contact" type="text">
+
+    <label for="stylist-name">Link to Stylist Photo</label>
+    <input id="stylist-photolink" name="stylist-photolink" type="text">
+
+    <button type="submit">Submit</button>
+  </form>
+  <h4><a href="/">Return home</a></h4>
+</div>
