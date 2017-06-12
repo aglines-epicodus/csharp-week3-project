@@ -14,27 +14,29 @@ A user will be able to add new stylists, add new clients to any stylist, update 
 
 |  behavior | input  | output  |
 |---|---|---|
-| User enters new stylist |  |  |
-| User enters new client |  |  |
-| User views stylist |  |  |
-| User views client |  |  |
-| User updates client info |  |  |
-| User deletes client info |  |  |
-| User updates stylist info |  |  |
-| User deletes stylist info |  |  |
-
+| User views stylist | Click 'stylists' link | List of stylists appears  |
+| User views client | Click 'clients' link  | List of clients appears |
+| User enters new stylist | Stylist name, stylist, contact | "Success" |
+| User enters new client | Client name, stylist, contact | "Success" |
+| User updates client info | Edit this client | Routes back to Client with new info |
+| User updates stylist info | Edit this stylist | Routes back to Stylist with new inf  |
+| User deletes client info | Confirm deletion | "Success" |
+| User deletes stylist info | Confirm deletion | "Success" |
 
 ## Setup/Installation Requirements
+# Github
 
 Go to Github repository page at https://github.com/aglines-epicodus/csharp-week2-project
 Click the "download or clone" button and copy the link.
 In your computer's terminal type "git clone" and paste the copied link.
 
-Set up the database in SQLCMD using the following statements:
-\> CREATE DATABASE todo; > GO
-\> USE hair_salon; > GO
-\> CREATE TABLE stylists (id INT IDENTITY(1,1), name VARCHAR(255), contact VARCHAR(255), photo_link VARCHAR(255));
-\> CREATE TABLE clients (id INT IDENTITY(1,1), name VARCHAR(255), stylist_id INT, contact VARCHAR(255)) VARCHAR(255), contact VARCHAR(255)); > GO
+#Database
+Open SSMS ; select File > Open > File and select the "hairsalon.sql" file included with the Github download.  If the database "hair_salon" does not already exist, add the following lines to the top of the script file:
+\> CREATE DATABASE [your_database_name]
+\> GO
+Save the file with the added lines.
+Click Execute.
+
 
 Once downloaded you can open the root html file in the browser of your choice.
 You can view the code using the text editor of your choice as well.

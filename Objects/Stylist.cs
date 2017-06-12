@@ -68,12 +68,24 @@ namespace HairSalon
       SqlConnection conn = DB.Connection();
       conn.Open();
 
-      SqlCommand cmd = new SqlCommand("INSERT INTO stylists (name) OUTPUT INSERTED.id VALUES (@StylistName);", conn);
+      SqlCommand cmd = new SqlCommand("INSERT INTO stylists (name, contact, photo_link) OUTPUT INSERTED.id VALUES (@StylistName, @StylistContact, @StylistPhotolink);", conn);
 
       SqlParameter nameParameter = new SqlParameter();
       nameParameter.ParameterName = "@StylistName";
       nameParameter.Value = this.GetName();
+
+      SqlParameter contactParameter = new SqlParameter();
+      contactParameter.ParameterName = "@StylistContact";
+      contactParameter.Value = this.GetContact();
+
+      SqlParameter photolinkParameter = new SqlParameter();
+      photolinkParameter.ParameterName = "@StylistPhotolink";
+      photolinkParameter.Value = this.GetPhotolink();
+
       cmd.Parameters.Add(nameParameter);
+      cmd.Parameters.Add(contactParameter);
+      cmd.Parameters.Add(photolinkParameter);
+
       SqlDataReader rdr = cmd.ExecuteReader();
 
       while(rdr.Read())
@@ -226,7 +238,7 @@ namespace HairSalon
 
 
 
-    
+
 
 
 

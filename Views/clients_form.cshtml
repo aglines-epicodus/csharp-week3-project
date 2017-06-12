@@ -7,12 +7,17 @@
   <form action="/clients/new" method="post">
     <label for="client-name">Client Name:</label>
     <input id="client-name" name="client-name" type="text">
+    Add to Stylist: 
     <select name="stylist-id">
       @foreach (var stylist in Model)
       {
         <option value="@stylist.GetId()">@stylist.GetName()</option>
       }
     </select>
+
+    <label for="client-contact">Client Contact:</label>
+    <input id="client-contact" name="client-contact" type="text">
+
     <button type="submit">Add new client</button>
   </form>
   <p><a href="/">Back home</a></p>
