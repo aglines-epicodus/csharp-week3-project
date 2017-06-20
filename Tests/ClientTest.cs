@@ -65,19 +65,19 @@ namespace HairSalon
       Assert.Equal(testClient, foundClient);
     }
 
-    [Fact]
-    public void Test_ByStylist_ReturnsTrueIfListsAreTheSame()
-    {
-      Stylist newStylist = new Stylist("A", "a@a.com", "photolink");
-      Client firstClient = new Client("Person A", 1, "email", newStylist.GetId());
-      Client secondClient = new Client("Person B", 2, "email", newStylist.GetId());
-      newStylist.Save();
-      firstClient.Save();
-      secondClient.Save();
-      List<Client> result = Client.ByStylist();
-      List<Client> testList = new List<Client>{firstClient, secondClient};
-      Assert.Equal(testList, result);
-    }
+    // [Fact]
+    // public void Test_ByStylist_ReturnsTrueIfListsAreTheSame()
+    // {
+    //   Stylist newStylist = new Stylist("A", "a@a.com", "photolink");
+    //   Client firstClient = new Client("Person A", 1, "email", newStylist.GetId());
+    //   Client secondClient = new Client("Person B", 2, "email", newStylist.GetId());
+    //   newStylist.Save();
+    //   firstClient.Save();
+    //   secondClient.Save();
+    //   List<Client> result = Client.ByStylist();
+    //   List<Client> testList = new List<Client>{firstClient, secondClient};
+    //   Assert.Equal(testList, result);
+    // }
 
 
 
