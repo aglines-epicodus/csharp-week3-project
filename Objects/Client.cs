@@ -134,14 +134,6 @@ namespace HairSalon
       }
     }
 
-
-
-
-
-
-
-
-
     public static Client Find(int id)
     {
       SqlConnection conn = DB.Connection();
@@ -180,7 +172,6 @@ namespace HairSalon
       return foundClient;
     }
 
-
     public static List<Client> ByStylist()
     {
       List<Client> AllClients = new List<Client>{};
@@ -208,8 +199,6 @@ namespace HairSalon
       }
       return AllClients;
     }
-
-
 
     public void Update(string newName)
     {
@@ -243,14 +232,6 @@ namespace HairSalon
       }
     }
 
-
-
-
-
-
-
-
-
     public void Delete()
     {
       SqlConnection conn = DB.Connection();
@@ -267,21 +248,11 @@ namespace HairSalon
       }
     }
 
-
-
-
-
-
-
-
-
-
-
     public static void DeleteAll()
     {
       SqlConnection conn = DB.Connection();
       conn.Open();
-      SqlCommand cmd = new SqlCommand("DELETE FROM clients;", conn);
+      SqlCommand cmd = new SqlCommand("DELETE FROM clients; DELETE from stylists", conn);
       cmd.ExecuteNonQuery();
       conn.Close();
     }

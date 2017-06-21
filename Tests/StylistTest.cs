@@ -75,8 +75,6 @@ namespace HairSalon
       Assert.Equal(testList, result);
     }
 
-
-
     public void Dispose()
     {
       Stylist.DeleteAll();

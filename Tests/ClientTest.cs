@@ -14,10 +14,7 @@ namespace HairSalon
       DBConfiguration.ConnectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=hair_salon_test;Integrated Security=SSPI;";
     }
 
-    public void Dispose()
-    {
-      Client.DeleteAll();
-    }
+
 
     [Fact]
     public void Test_DatabaseEmptyAtFirst()
@@ -81,7 +78,10 @@ namespace HairSalon
 
 
 
-
+    public void Dispose()
+    {
+      Client.DeleteAll();
+    }
 
 
 

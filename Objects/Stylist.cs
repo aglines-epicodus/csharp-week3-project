@@ -63,6 +63,7 @@ namespace HairSalon
     {
       _photolink = newPhotolink;
     }
+
     public void Save()
     {
       SqlConnection conn = DB.Connection();
@@ -236,15 +237,6 @@ namespace HairSalon
       return clients;
     }
 
-
-
-
-
-
-
-
-
-
     public void Delete()
     {
       SqlConnection conn = DB.Connection();
@@ -269,7 +261,7 @@ namespace HairSalon
     {
       SqlConnection conn = DB.Connection();
       conn.Open();
-      SqlCommand cmd = new SqlCommand("DELETE FROM stylists;", conn);
+      SqlCommand cmd = new SqlCommand("DELETE FROM stylists; DELETE from clients", conn);
       cmd.ExecuteNonQuery();
       conn.Close();
     }

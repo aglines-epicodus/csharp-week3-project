@@ -1,4 +1,6 @@
-﻿USE [hair_salon]
+﻿CREATE DATABASE [hair_salon_test]
+GO
+USE [hair_salon]
 GO
 /****** Object:  Table [dbo].[clients]    Script Date: 6/11/2017 6:25:41 PM ******/
 SET ANSI_NULLS ON
